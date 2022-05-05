@@ -29,6 +29,24 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Smart Parking IOT Dashboard</h1>
+                <div class="lamp1">
+                    <span>LED: </span>
+                    <!--<button type="button" class="btn btn-primary" ng-click="checkVal(1)">ON</button> -->
+                    <input type="number" name="input" ng-model="checkVal(0)" min="0" max="1" required> 
+                    <!--<button type="button" class="btn btn-danger" ng-click="checkVal(0)">OFF</button> -->
+                    <div class="result_box">
+                        <img ng-src="{{lamp_state}}">
+                        <p>{{result}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         var app = angular.module('myApp', []);
         app.controller('ledCtrl', function($scope) {
