@@ -13,7 +13,7 @@ import socketio
 
 eventlet.monkey_patch()
 app = Flask(__name__)
-app.config['SECRET_KEY'] = ''
+#app.config['SECRET_KEY'] = ''
 socketio = SocketIO(app, ping_interval=5, ping_timeout=10)
 CORS(app)
 

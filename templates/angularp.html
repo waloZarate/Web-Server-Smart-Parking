@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+      
+<head>
+    <title>ng-show Directive</title>
+      
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+    </script>
+</head>
+  
+<body ng-app="app" style="text-align:center">
+    <div ng-controller="geek" ng-init="val=0">
+        <h1 style="color:green">GeeksforGeeks</h1>
+        <h2>ng-show Directive</h2>
+          
+        Enter a number:
+        <input type="text" ng-model="val" ng-keyup="check(val)">
+  
+        <div ng-hide="show">
+            <h3>
+                The number is multiple of 5
+            </h3>
+        </div>
+          
+        <div ng-show="show">
+            <h3>
+                The number is not a multiple of 5
+            </h3>
+        </div>
+    </div>
+      
+    <script>
+        var app = angular.module("app", []);
+        app.controller('geek', ['$scope', function ($scope) {
+            $scope.check = function (val) {
+                $scope.show = val % 5 == 0 ? false : true;
+            };
+        }]);
+    </script>
+</body>
+  
+</html>  
