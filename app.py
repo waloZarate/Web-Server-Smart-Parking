@@ -1,19 +1,21 @@
-import os
+import eventlet
+eventlet.monkey_patch()
 
+import os
 import paho.mqtt.client as mqtt
 from flask import Flask, render_template, request, redirect, make_response
 from flask_socketio import SocketIO, emit, send
 from flask_cors import CORS
-import eventlet
+
 import datetime             #Show date
 import csv                  #for storing data
 import time
 
 import socketio                 
 
-eventlet.monkey_patch()
-app = Flask(__name__)
-#app.config['SECRET_KEY'] = ''
+
+app = Flask(__name__, static_url_path='/static')
+#app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, ping_interval=5, ping_timeout=10)
 CORS(app)
 
@@ -172,7 +174,7 @@ mqttc.on_connect = on_connect
 mqttc.on_message = on_message
 mqttc.connect(broker, port)
 mqttc.loop_start()
-time.sleep(1)
+
 
 
 #Create a dictionary called "pins" to store the pin number, name, and pin state:
